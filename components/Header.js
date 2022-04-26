@@ -18,7 +18,7 @@ const Header = () => {
 
   return (
     <nav className={`w-full bg-gradient-to-r from-dark-green to-green backdrop-blur-sm shadow-md z-20 fixed top-0 left-0 right-0`}>
-      <div className="md:flex items-center justify-between  py-4 md:px-15 px-7 ">
+      <div className="md:flex items-center justify-between  py-4 md:px-15 px-10 ">
       
       <Link href="/">
           <a className="font-bold  cursor-pointer flex items-center	md:z-auto">
