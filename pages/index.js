@@ -1,8 +1,11 @@
 import Head from "next/head";
+import Script from "next/script";
 import Image from "next/image";
+import Card from "../components/Card";
 export default function Home() {
   return (
     <div className="mt-12">
+     
       {/* Hero section */}
       <section className="bg-gradient-to-r from-dark-green to-green py-16 px-5 md:px-10 flex flex-col-reverse md:flex-row items-center justify-center">
         <div className="w-full md:w-1/2 flex flex-col sm:justify-start items-center sm:items-start">
@@ -16,7 +19,7 @@ export default function Home() {
           </p>
           <form className="flex flex-row max-w-sm ">
             <input
-              className="py-2 px-2 md:px-5 grow border-2 border-yellow bg-transparent rounded-3xl text-base md:text-lg outline-none"
+              className="py-2 px-4 md:px-5 grow border-2 text-yellow border-yellow bg-transparent rounded-3xl text-base md:text-lg outline-none"
               type="email"
               placeholder="Email Address"
               required
@@ -36,6 +39,17 @@ export default function Home() {
           height={436}
         />
       </section>
+      <h2 className="text-dark-green text-4xl font-bold text-center my-3">
+        Latest Blogs
+      </h2>
+      <div className="flex flex-wrap justify-center items-center">
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+      </div>
+
+      
     </div>
   );
 }
