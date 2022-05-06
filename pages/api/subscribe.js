@@ -20,6 +20,6 @@ export default async (req, res) => {
 
     return res.status(201).json({ error: 'Subscribed Successfully' });
   } catch (error) {
-    return res.status(500).json({ error: error.message || error.toString() });
+    return res.status(500).json({ error: 'Something Wrong - Try Again!' });
   }
 };
