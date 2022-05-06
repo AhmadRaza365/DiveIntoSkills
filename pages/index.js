@@ -5,6 +5,7 @@ import Script from "next/script";
 import Image from "next/image";
 import Card from "../components/Card";
 import Subscribe from "../components/Subscribe";
+import Link from "next/link";
 export default function Home() {
   const [subscribeMsg, setSubscribeMsg] = useState("");
   const inputEl = useRef(null);
@@ -76,16 +77,39 @@ export default function Home() {
           height={436}
         />
       </section>
-      <h2 className="text-dark-green text-4xl font-bold text-center my-3">
-        Latest Blogs
-      </h2>
-      <div className="flex flex-wrap justify-center items-center">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-      </div>
-
+      <section className="flex flex-col items-center my-5">
+        <h2 className="text-dark-green text-4xl font-bold text-center my-3">
+          Latest Blogs
+        </h2>
+        <div className="flex flex-wrap justify-center items-center">
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+        </div>
+        <button className="bg-dark-green text-yellow rounded-xl px-5 py-2 text-xl my-3">
+         <Link href="/blogs">
+          Read More
+         </Link>
+        </button>
+      </section>
+      <section className="flex flex-col items-center my-5">
+        <h2 className="text-dark-green text-4xl font-bold text-center my-3">
+          Latest Courses
+        </h2>
+        <div className="flex flex-wrap justify-center items-center">
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+        </div>
+        <button className="bg-dark-green text-yellow rounded-xl px-5 py-2 text-xl my-3">
+        <Link href="/courses">
+          View More
+         </Link>
+        </button>
+      </section>
+      
       <Subscribe />
     </div>
   );
