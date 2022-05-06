@@ -6,7 +6,6 @@ import Image from "next/image";
 import Card from "../components/Card";
 import Subscribe from "../components/Subscribe";
 export default function Home() {
-  const [subscribeStatus, setSubscribeStatus] = useState(false);
   const [subscribeMsg, setSubscribeMsg] = useState("");
   const inputEl = useRef(null);
 
@@ -68,7 +67,7 @@ export default function Home() {
               Subscribe
             </button>
           </form>
-          <p>{subscribeMsg}</p>
+          <p className="text-yellow pl-4 my-2">{subscribeMsg}</p>
         </div>
         <Image
           src="/heroImage.svg"
