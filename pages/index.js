@@ -1,11 +1,47 @@
+import React, { useRef, useState, useEffect } from "react";
+
 import Head from "next/head";
 import Script from "next/script";
 import Image from "next/image";
 import Card from "../components/Card";
+import Subscribe from "../components/Subscribe";
 export default function Home() {
+  const [subscribeStatus, setSubscribeStatus] = useState(false);
+  const [subscribeMsg, setSubscribeMsg] = useState("");
+  const inputEl = useRef(null);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setSubscribeMsg("");
+    }, 5000);
+  }, [subscribeMsg]);
+
+  const subscribeUser = async (e) => {
+    e.preventDefault();
+
+    const res = await fetch("/api/subscribe", {
+      body: JSON.stringify({
+        email: inputEl.current.value,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+    });
+
+    const { error } = await res.json();
+
+    if (error) {
+      setSubscribeMsg(error);
+
+      return;
+    }
+
+    inputEl.current.value = "";
+  };
+
   return (
     <div className="mt-12">
-     
       {/* Hero section */}
       <section className="bg-gradient-to-r from-dark-green to-green py-16 px-5 md:px-10 flex flex-col-reverse md:flex-row items-center justify-center">
         <div className="w-full md:w-1/2 flex flex-col sm:justify-start items-center sm:items-start">
@@ -17,10 +53,11 @@ export default function Home() {
             free! Join our Newsletter and get alerted when new articles, topics
             or courses are published.
           </p>
-          <form className="flex flex-row max-w-sm ">
+          <form className="flex flex-row max-w-sm " onSubmit={subscribeUser}>
             <input
               className="py-2 px-4 md:px-5 grow border-2 text-yellow border-yellow bg-transparent rounded-3xl text-base md:text-lg outline-none"
               type="email"
+              ref={inputEl}
               placeholder="Email Address"
               required
             />
@@ -31,6 +68,7 @@ export default function Home() {
               Subscribe
             </button>
           </form>
+          <p>{subscribeMsg}</p>
         </div>
         <Image
           src="/heroImage.svg"
@@ -49,7 +87,7 @@ export default function Home() {
         <Card />
       </div>
 
-      
+      <Subscribe />
     </div>
   );
 }
