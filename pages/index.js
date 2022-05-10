@@ -41,7 +41,7 @@ export default function Home() {
   };
 
   return (
-    <div className="mt-12">
+    <main className="mt-12">
       {/* Hero section */}
       <section className="bg-gradient-to-r from-dark-green to-green py-16 px-5 md:px-10 flex flex-col-reverse md:flex-row items-center justify-center">
         <div className="w-full md:w-1/2 flex flex-col sm:justify-start items-center sm:items-start">
@@ -87,7 +87,7 @@ export default function Home() {
           <Card />
           <Card />
         </div>
-        <button className="bg-dark-green text-yellow rounded-xl px-5 py-2 text-xl my-3">
+        <button className="bg-dark-green hover:bg-transparent border-2 border-dark-green text-yellow hover:text-dark-green shadow-md rounded-xl px-5 py-2 text-xl my-3">
          <Link href="/blogs">
           Read More
          </Link>
@@ -103,7 +103,7 @@ export default function Home() {
           <Card />
           <Card />
         </div>
-        <button className="bg-dark-green text-yellow rounded-xl px-5 py-2 text-xl my-3">
+        <button className="bg-dark-green hover:bg-transparent border-2 border-dark-green text-yellow hover:text-dark-green shadow-md rounded-xl px-5 py-2 text-xl my-3">
         <Link href="/courses">
           View More
          </Link>
@@ -111,6 +111,6 @@ export default function Home() {
       </section>
       
       <Subscribe />
-    </div>
+    </main>
   );
 }

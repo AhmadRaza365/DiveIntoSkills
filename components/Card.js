@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Card() {
     return (
-        <div className="bg-light-yellow w-72 rounded-2xl mx-3 my-2">
+        <div className="bg-light-yellow shadow-md w-72 rounded-2xl mx-3 my-2">
       
         <Image
         className="rounded-t-2xl"
