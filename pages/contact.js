@@ -101,7 +101,7 @@ export default function Blogs() {
           >
             <input
               type="text"
-              className="py-2 px-4 md:px-5 grow border-2 text-yellow border-yellow bg-transparent rounded-3xl text-base md:text-lg outline-none"
+              className="py-2 px-4 md:px-5 grow border-2 text-light-yellow border-light-yellow bg-transparent rounded-3xl placeholder-light-yellow text-base md:text-lg outline-none"
               name="name"
               id="name"
               placeholder="Name"
@@ -109,7 +109,7 @@ export default function Blogs() {
             />
             <input
               type="email"
-              className="py-2 px-4 md:px-5 grow border-2 text-yellow border-yellow bg-transparent rounded-3xl text-base md:text-lg outline-none"
+              className="py-2 px-4 md:px-5 grow border-2 text-light-yellow border-light-yellow bg-transparent rounded-3xl placeholder-light-yellow text-base md:text-lg outline-none"
               name="email"
               id="email"
               placeholder="Email"
@@ -117,7 +117,7 @@ export default function Blogs() {
             />
             <input
               type="text"
-              className="py-2 px-4 md:px-5 grow border-2 text-yellow border-yellow bg-transparent rounded-3xl text-base md:text-lg outline-none"
+              className="py-2 px-4 md:px-5 grow border-2 text-light-yellow border-light-yellow bg-transparent rounded-3xl placeholder-light-yellow file:text-base md:text-lg outline-none"
               name="subject"
               id="subject"
               placeholder="Subject"
@@ -125,7 +125,7 @@ export default function Blogs() {
             />
             <textarea
               name="mail_body"
-              className="py-2 px-4 md:px-5 grow border-2 text-yellow border-yellow bg-transparent rounded-3xl text-base md:text-lg outline-none"
+              className="py-2 px-4 md:px-5 grow border-2 text-light-yellow border-light-yellow bg-transparent rounded-3xl placeholder-light-yellow text-base md:text-lg outline-none"
               id="body"
               cols="30"
               rows="10"
@@ -133,7 +133,7 @@ export default function Blogs() {
             ></textarea>
             <button
               type="submit"
-              className="bg-yellow text-dark-green mx-auto hover:text-yellow hover:bg-transparent border-2 border-yellow  px-4 py-2 my-2 text-xl font-bold rounded-md transition-all duration-300 ease-in"
+              className="bg-light-yellow text-dark-green mx-auto hover:text-light-yellow hover:bg-transparent border-2  border-light-yellow  px-4 py-2 my-2 text-xl font-bold rounded-md transition-all duration-300 ease-in"
             >
               Send
             </button>
