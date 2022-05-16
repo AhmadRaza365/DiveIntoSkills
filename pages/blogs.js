@@ -14,7 +14,7 @@ export default function Blogs({ posts }) {
 
       <section className="flex flex-col items-center my-5">
         <div className="flex flex-wrap justify-center items-center">
-        {posts.map((post, index) => (
+        {posts.filter((post, index) => post.postMeta.type == 'post').map((post, index) => (
         <Card
           key={post.slug}
           title = {post.postMeta.title}

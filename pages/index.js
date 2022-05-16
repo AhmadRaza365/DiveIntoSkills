@@ -1,4 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
 
 import Head from "next/head";
 import Script from "next/script";
@@ -6,7 +9,7 @@ import Image from "next/image";
 import Card from "../components/Card";
 import Subscribe from "../components/Subscribe";
 import Link from "next/link";
-export default function Home() {
+export default function Home({ posts }) {
   const [subscribeMsg, setSubscribeMsg] = useState("");
   const inputEl = useRef(null);
 
@@ -82,10 +85,16 @@ export default function Home() {
           Latest Blogs
         </h2>
         <div className="flex flex-wrap justify-center items-center">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+        {posts.filter((post, index) =>  post.postMeta.type == 'post').filter((post, index) =>  index < 4).map((post, index) => (
+        <Card
+          key={post.slug}
+          title = {post.postMeta.title}
+          slug={post.slug}
+          image={post.postMeta.cover_image}
+          description={post.postMeta.excerpt}
+          date={post.postMeta.date}
+        />
+      ))}
         </div>
         <button className="bg-dark-green hover:bg-transparent border-2 border-dark-green text-yellow hover:text-dark-green shadow-md rounded-xl px-5 py-2 text-xl my-3">
          <Link href="/blogs">
@@ -98,10 +107,16 @@ export default function Home() {
           Latest Courses
         </h2>
         <div className="flex flex-wrap justify-center items-center">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+        {posts.filter((post, index) =>  post.postMeta.type == 'course').filter((post, index) =>  index < 4).map((post, index) => (
+        <Card
+          key={post.slug}
+          title = {post.postMeta.title}
+          slug={post.slug}
+          image={post.postMeta.cover_image}
+          description={post.postMeta.excerpt}
+          date={post.postMeta.date}
+        />
+      ))}
         </div>
         <button className="bg-dark-green hover:bg-transparent border-2 border-dark-green text-yellow hover:text-dark-green shadow-md rounded-xl px-5 py-2 text-xl my-3">
         <Link href="/courses">
@@ -113,4 +128,30 @@ export default function Home() {
       <Subscribe />
     </main>
   );
+}
+
+export async function getStaticProps() {
+  const files = fs.readdirSync(path.join("postsData"));
+
+  const posts = files.map((filename) => {
+    const slug = filename.replace(".md", "");
+
+    const frontmatter = fs.readFileSync(
+      path.join("postsData", filename),
+      "utf8"
+    );
+
+    const { data: postMeta } = matter(frontmatter);
+
+    return {
+      slug,
+      postMeta,
+    };
+  });
+
+  return {
+    props: {
+      posts,
+    },
+  };
 }
