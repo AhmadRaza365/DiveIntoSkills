@@ -1,6 +1,12 @@
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
+import { marked } from "marked";
+
 import Image from "next/image";
 import Link from "next/link";
 import Card from "../../components/Card";
+
 import {
   FaFacebook,
   FaInstagram,
@@ -9,13 +15,12 @@ import {
   FaGithub,
 } from "react-icons/fa";
 
-export default function Posts() {
+export default function Posts({frontmatter:{title, date, cover_image}, post, content}) {
   return (
     <main className="mt-24">
       <article className="mx-2 md:mx-16">
         <h1 className="text-dark-green text-xl md:text-4xl font-bold text-left my-3">
-          There is no one who loves pain itself, who seeks after it and wants to
-          have it, because it is pain
+          {title}
         </h1>
         <div className="flex items-center justify-between mx-2 md:mx-10">
           <div className="flex items-center gap-2">
@@ -32,70 +37,18 @@ export default function Posts() {
               Ahmad Raza
             </h3>
           </div>
-          <p className="text-lg">22/02/22</p>
+          <p className="text-lg">{date}</p>
         </div>
         <Image
           className="rounded-md"
-          src="https://images.unsplash.com/photo-1637637126621-ae60cdea68a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+          // src="https://images.unsplash.com/photo-1637637126621-ae60cdea68a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+          src={cover_image}
           alt="AhmadRaza365"
           width={1280}
           height={520}
         />
-        <div>
-          <p className="text-lg">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit odio
-            excepturi, inventore obcaecati dicta quas voluptates animi eius in
-            ex labore dolorem alias similique ratione corporis voluptatum minima
-            deleniti, dolores possimus fugiat assumenda, architecto illo eos
-            est? Repudiandae ducimus necessitatibus, assumenda veritatis
-            obcaecati, omnis accusamus consequuntur aliquam odio voluptates
-            maxime nostrum! Facere temporibus est suscipit saepe corporis
-            perferendis deleniti reprehenderit ratione amet totam quo, labore
-            iusto molestiae repudiandae esse accusamus sapiente eligendi.
-            Ratione, impedit. Doloribus reprehenderit corrupti, asperiores, quae
-            amet ab omnis quo odit quaerat ullam veniam quis odio iste libero.
-            Numquam rem labore, vitae odio porro sed officia culpa,
-            reprehenderit consequuntur nisi repudiandae natus quae dicta
-            perspiciatis sunt molestias doloribus necessitatibus! Nostrum
-            architecto, necessitatibus id, aperiam voluptate facere velit rem
-            quia eligendi, sed explicabo consequuntur saepe ratione assumenda
-            laborum quaerat tempora possimus inventore quod sequi beatae ipsa?
-            Corrupti eos omnis ipsam. Sed quae suscipit omnis tempora modi ad
-            voluptas repellat officiis voluptatum tenetur. Necessitatibus
-            exercitationem quaerat eos eveniet facilis deleniti dolorum quo at
-            repellat voluptatem delectus, odio enim reiciendis consectetur
-            praesentium tenetur harum earum nobis commodi esse pariatur non
-            repudiandae provident? Repellendus autem mollitia ut, suscipit vel
-            voluptate ipsum eos reprehenderit aliquid, veniam quas iure enim
-            illo velit voluptates?
-          </p>
-          <p className="text-lg">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit odio
-            excepturi, inventore obcaecati dicta quas voluptates animi eius in
-            ex labore dolorem alias similique ratione corporis voluptatum minima
-            deleniti, dolores possimus fugiat assumenda, architecto illo eos
-            est? Repudiandae ducimus necessitatibus, assumenda veritatis
-            obcaecati, omnis accusamus consequuntur aliquam odio voluptates
-            maxime nostrum! Facere temporibus est suscipit saepe corporis
-            perferendis deleniti reprehenderit ratione amet totam quo, labore
-            iusto molestiae repudiandae esse accusamus sapiente eligendi.
-            Ratione, impedit. Doloribus reprehenderit corrupti, asperiores, quae
-            amet ab omnis quo odit quaerat ullam veniam quis odio iste libero.
-            Numquam rem labore, vitae odio porro sed officia culpa,
-            reprehenderit consequuntur nisi repudiandae natus quae dicta
-            perspiciatis sunt molestias doloribus necessitatibus! Nostrum
-            architecto, necessitatibus id, aperiam voluptate facere velit rem
-            quia eligendi, sed explicabo consequuntur saepe ratione assumenda
-            laborum quaerat tempora possimus inventore quod sequi beatae ipsa?
-            Corrupti eos omnis ipsam. Sed quae suscipit omnis tempora modi ad
-            voluptas repellat officiis voluptatum tenetur. Necessitatibus
-            exercitationem quaerat eos eveniet facilis deleniti dolorum quo at
-            repellat voluptatem delectus, odio enim reiciendis consectetur
-            praesentium tenetur harum earum nobis commodi esse pariatur non
-            repudiandae provident? Repellendus autem mollitia ut, suscipit vel
-            voluptate ipsum eos reprehenderit aliquid, veniam quas iure enim
-            illo velit voluptates?
-          </p>
+        <div dangerouslySetInnerHTML={{__html: marked(content)}} >
+          
         </div>
       </article>
       <div className="my-10">
@@ -150,13 +103,40 @@ export default function Posts() {
         Read Related Blogs
         </h2>
         <div className="flex flex-wrap justify-center items-center">
+          {/* <Card />
           <Card />
           <Card />
-          <Card />
-          <Card />
+          <Card /> */}
         </div>
        
       </section>
     </main>
   );
+}
+
+   export async function getStaticPaths() {
+    const files = fs.readdirSync(path.join('postsData'))
+    const paths = files.map(filename => ({
+          params: {
+            post: filename.replace('.md', '')
+          }
+        }))
+    return {
+      paths,
+      fallback: false,
+    };
+  }
+
+export async function getStaticProps({params: {post}}) {
+ 
+  const markdownWithMetadata = fs.readFileSync(path.join('postsData', post + '.md'), 'utf8')
+  const {data: frontmatter,content} = matter(markdownWithMetadata)
+
+  return {
+    props:{
+      frontmatter,
+      post,
+      content,
+    },
+  }
 }

@@ -1,6 +1,6 @@
 ---
 title: 'Test Post'
-date: 'May 16, 2022'
+date: 'May 5, 2022'
 excerpt: 'This is a test post.'
 cover_image: '/images/postImages/testimage.png'
 type: 'course'
