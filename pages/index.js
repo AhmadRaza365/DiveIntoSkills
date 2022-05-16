@@ -9,6 +9,7 @@ import Image from "next/image";
 import Card from "../components/Card";
 import Subscribe from "../components/Subscribe";
 import Link from "next/link";
+import { sortByDate } from "../utils";
 export default function Home({ posts }) {
   const [subscribeMsg, setSubscribeMsg] = useState("");
   const inputEl = useRef(null);
@@ -151,7 +152,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      posts,
+      posts: posts.sort(sortByDate),
     },
   };
 }
