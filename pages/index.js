@@ -43,9 +43,80 @@ export default function Home({ posts }) {
 
     inputEl.current.value = "";
   };
-
   return (
     <main className="mt-12">
+      <Head>
+        {/* Favicons */}
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/favicons/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicons/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicons/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/favicons/site.webmanifest" />
+        <meta name="msapplication-TileColor" content="#ffed0e" />
+        <meta name="theme-color" content="#ffed0e" />
+
+        {/* Title, Desc, Keywords, Author and Robots tags */}
+        <title>
+          Dive Into Skills - Latest Articles and Courses to upgrade Skills
+        </title>
+        <meta
+          name="description"
+          content="Want to Master Web Development? DiveIntoSkills is here to help you with amazing resources that are available for free!"
+        />
+
+        <meta
+          name="keywords"
+          content="Dive Into Skills, DiveIntoSkills,Free Courses, Skill, Skills, Web Development, Development, Programming"
+        />
+        <meta name="author" content="AhmadRaza365" />
+        <meta name="robots" content="index, follow" />
+
+        {/* og Tags */}
+        <meta
+          property="og:title"
+          content="Dive Into Skills - Latest Articles and Courses to upgrade Skills"
+        />
+        <meta property="og:site_name" content="Dive Into Skills" />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://diveintoskills.com/" />
+        <meta property="og:locale" content="en_US" />
+        <meta
+          property="og:image"
+          content="https://diveintoskills.com/images/diveintoskills.png"
+        />
+        <meta
+          property="og:description"
+          content="Want to Master Web Development? DiveIntoSkills is here to help you with amazing resources that are available for free!"
+        />
+
+        {/* Twitter Card Tags */}
+
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@DiveIntoSkills" />
+        <meta name="twitter:title" content="Dive Into Skills" />
+        <meta name="twitter:creator" content="@AhmadRaza365" />
+        <meta
+          name="twitter:description"
+          content="Want to Master Web Development? DiveIntoSkills is here to help you with amazing resources that are available for free!"
+        />
+        <meta
+          name="twitter:image"
+          content="https://diveintoskills.com/images/diveintoskills.png"
+        />
+      </Head>
       {/* Hero section */}
       <section className="bg-gradient-to-r from-dark-green to-green py-16 px-5 md:px-10 flex flex-col-reverse md:flex-row items-center justify-center">
         <div className="w-full md:w-1/2 flex flex-col sm:justify-start items-center sm:items-start">
@@ -86,21 +157,22 @@ export default function Home({ posts }) {
           Latest Blogs
         </h2>
         <div className="flex flex-wrap justify-center items-center">
-        {posts.filter((post, index) =>  post.postMeta.type == 'post').filter((post, index) =>  index < 4).map((post, index) => (
-        <Card
-          key={post.slug}
-          title = {post.postMeta.title}
-          slug={post.slug}
-          image={post.postMeta.cover_image}
-          description={post.postMeta.excerpt}
-          date={post.postMeta.date}
-        />
-      ))}
+          {posts
+            .filter((post, index) => post.postMeta.type == "post")
+            .filter((post, index) => index < 4)
+            .map((post, index) => (
+              <Card
+                key={post.slug}
+                title={post.postMeta.title}
+                slug={post.slug}
+                image={post.postMeta.cover_image}
+                description={post.postMeta.excerpt}
+                date={post.postMeta.date}
+              />
+            ))}
         </div>
         <button className="bg-dark-green hover:bg-transparent border-2 border-dark-green text-yellow hover:text-dark-green shadow-md rounded-xl px-5 py-2 text-xl my-3">
-         <Link href="/blogs">
-          Read More
-         </Link>
+          <Link href="/blogs">Read More</Link>
         </button>
       </section>
       <section className="flex flex-col items-center my-5">
@@ -108,24 +180,25 @@ export default function Home({ posts }) {
           Latest Courses
         </h2>
         <div className="flex flex-wrap justify-center items-center">
-        {posts.filter((post, index) =>  post.postMeta.type == 'course').filter((post, index) =>  index < 4).map((post, index) => (
-        <Card
-          key={post.slug}
-          title = {post.postMeta.title}
-          slug={post.slug}
-          image={post.postMeta.cover_image}
-          description={post.postMeta.excerpt}
-          date={post.postMeta.date}
-        />
-      ))}
+          {posts
+            .filter((post, index) => post.postMeta.type == "course")
+            .filter((post, index) => index < 4)
+            .map((post, index) => (
+              <Card
+                key={post.slug}
+                title={post.postMeta.title}
+                slug={post.slug}
+                image={post.postMeta.cover_image}
+                description={post.postMeta.excerpt}
+                date={post.postMeta.date}
+              />
+            ))}
         </div>
         <button className="bg-dark-green hover:bg-transparent border-2 border-dark-green text-yellow hover:text-dark-green shadow-md rounded-xl px-5 py-2 text-xl my-3">
-        <Link href="/courses">
-          View More
-         </Link>
+          <Link href="/courses">View More</Link>
         </button>
       </section>
-      
+
       <Subscribe />
     </main>
   );
