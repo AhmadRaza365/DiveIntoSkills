@@ -9,7 +9,7 @@ export default function Card(props) {
         <Image
         className="rounded-t-2xl"
           src={props.image}
-          alt="Boy using laptop"
+          alt={props.title}
           width={670}
           height={436}
         />
@@ -24,7 +24,7 @@ export default function Card(props) {
           {props.description}
         </p>
         <div className="text-light-green text-base flex justify-between ">
-            <p>{props.date}</p>
+            <time>{props.date}</time>
             <p>By: Ahmad Raza</p>
         </div>
       </div>

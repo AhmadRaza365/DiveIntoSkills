@@ -144,7 +144,7 @@ export default function Home({ posts }) {
                 title={post.postMeta.title}
                 slug={post.slug}
                 image={post.postMeta.cover_image}
-                description={post.postMeta.excerpt}
+                description={post.postMeta.description}
                 date={post.postMeta.date}
               />
             ))}
@@ -167,7 +167,7 @@ export default function Home({ posts }) {
                 title={post.postMeta.title}
                 slug={post.slug}
                 image={post.postMeta.cover_image}
-                description={post.postMeta.excerpt}
+                description={post.postMeta.description}
                 date={post.postMeta.date}
               />
             ))}
