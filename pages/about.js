@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -11,9 +12,76 @@ import {
 export default function About() {
   return (
     <main className="mt-24">
-      <h2 className="text-dark-green text-4xl font-bold text-center my-3">
+      <Head>
+        {/* Favicons */}
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/favicons/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicons/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicons/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/favicons/site.webmanifest" />
+        <meta name="msapplication-TileColor" content="#ffed0e" />
+        <meta name="theme-color" content="#ffed0e" />
+
+        {/* Title, Desc, Keywords, Author and Robots tags */}
+        <title>All About Dive Into Skills</title>
+        <meta
+          name="description"
+          content="Want to Master Web Development? DiveIntoSkills is here to help you with amazing resources that are available for free!"
+        />
+
+        <meta
+          name="keywords"
+          content="About, About Dive Into Skills, About DiveIntoSkills, Who is Dive Into Skills, Dive Into Skills, DiveIntoSkills, Free Courses, Latest Articles, Blog Posts, Blogs, Posts, Skill, Skills, Web Development, Development, Programming"
+        />
+        <meta name="author" content="AhmadRaza365" />
+        <meta name="robots" content="index, follow" />
+
+        {/* og Tags */}
+        <meta property="og:title" content="All About Dive Into Skills" />
+        <meta property="og:site_name" content="Dive Into Skills" />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://diveintoskills.com/about" />
+        <meta property="og:locale" content="en_US" />
+        <meta
+          property="og:image"
+          content="https://diveintoskills.com/images/diveintoskills.png"
+        />
+        <meta
+          property="og:description"
+          content="Want to Master Web Development? DiveIntoSkills is here to help you with amazing resources that are available for free!"
+        />
+
+        {/* Twitter Card Tags */}
+
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@DiveIntoSkills" />
+        <meta name="twitter:title" content="All About Dive Into Skills" />
+        <meta name="twitter:creator" content="@AhmadRaza365" />
+        <meta
+          name="twitter:description"
+          content="Want to Master Web Development? DiveIntoSkills is here to help you with amazing resources that are available for free!"
+        />
+        <meta
+          name="twitter:image"
+          content="https://diveintoskills.com/images/diveintoskills.png"
+        />
+      </Head>
+      <h1 className="text-dark-green text-4xl font-bold text-center my-3">
         All About &quot;Dive Into Skills&quot;
-      </h2>
+      </h1>
       <div className="flex flex-col md:flex-row items-center justify-center mx-4 my-5">
         <p className="text-dark-green text-justify text-2xl m-3 px-3 w-full md:w-1/2">
           <b>&quot;Dive Into Skills&quot;</b> is a platform where you can learn

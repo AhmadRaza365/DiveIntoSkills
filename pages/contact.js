@@ -6,6 +6,7 @@ import {
   FaTelegramPlane,
   FaFacebookMessenger,
 } from "react-icons/fa";
+import Head from "next/head";
 
 export default function Blogs() {
   const [sendSuccess, showSendSuccess] = useState(false);
@@ -45,11 +46,78 @@ export default function Blogs() {
 
   return (
     <main className="mt-16 w-screen bg-green ">
+      <Head>
+        {/* Favicons */}
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/favicons/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicons/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicons/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/favicons/site.webmanifest" />
+        <meta name="msapplication-TileColor" content="#ffed0e" />
+        <meta name="theme-color" content="#ffed0e" />
+
+        {/* Title, Desc, Keywords, Author and Robots tags */}
+        <title>Contact Dive Into Skills</title>
+        <meta
+          name="description"
+          content="Want to Master Web Development? DiveIntoSkills is here to help you with amazing resources that are available for free!"
+        />
+
+        <meta
+          name="keywords"
+          content="Contact, Contact Dive Into Skills, Contact DiveIntoSkills, Who is Dive Into Skills, Dive Into Skills, DiveIntoSkills, Free Courses, Latest Articles, Blog Posts, Blogs, Posts, Skill, Skills, Web Development, Development, Programming"
+        />
+        <meta name="author" content="AhmadRaza365" />
+        <meta name="robots" content="index, follow" />
+
+        {/* og Tags */}
+        <meta property="og:title" content="Contact Dive Into Skills" />
+        <meta property="og:site_name" content="Dive Into Skills" />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://diveintoskills.com/contact" />
+        <meta property="og:locale" content="en_US" />
+        <meta
+          property="og:image"
+          content="https://diveintoskills.com/images/diveintoskills.png"
+        />
+        <meta
+          property="og:description"
+          content="Want to Master Web Development? DiveIntoSkills is here to help you with amazing resources that are available for free!"
+        />
+
+        {/* Twitter Card Tags */}
+
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@DiveIntoSkills" />
+        <meta name="twitter:title" content="Contact Dive Into Skills" />
+        <meta name="twitter:creator" content="@AhmadRaza365" />
+        <meta
+          name="twitter:description"
+          content="Want to Master Web Development? DiveIntoSkills is here to help you with amazing resources that are available for free!"
+        />
+        <meta
+          name="twitter:image"
+          content="https://diveintoskills.com/images/diveintoskills.png"
+        />
+      </Head>
       <div className="flex flex-wrap w-screen justify-center divide-y md:divide-y-0 md:divide-x">
         <div className="border-white w-full md:w-2/5  p-4 flex flex-col justify-center">
-          <h3 className="text-light-yellow my-3 text-2xl md:text-4xl font-bold">
+          <h1 className="text-light-yellow my-3 text-2xl md:text-4xl font-bold">
             Have a Query in Mind?
-          </h3>
+          </h1>
           <p className="text-light-yellow text-2xl md:text-2xl ">
             You can reach out to me via email or social media platforms to
             discuss the query.
