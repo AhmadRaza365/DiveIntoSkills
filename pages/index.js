@@ -46,28 +46,6 @@ export default function Home({ posts }) {
   return (
     <main className="mt-12">
       <Head>
-        {/* Favicons */}
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/favicons/apple-touch-icon.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/favicons/favicon-32x32.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/favicons/favicon-16x16.png"
-        />
-        <link rel="manifest" href="/favicons/site.webmanifest" />
-        <meta name="msapplication-TileColor" content="#ffed0e" />
-        <meta name="theme-color" content="#ffed0e" />
-
         {/* Title, Desc, Keywords, Author and Robots tags */}
         <title>
           Dive Into Skills - Latest Articles and Courses to upgrade Skills
@@ -76,7 +54,7 @@ export default function Home({ posts }) {
           name="description"
           content="Want to Master Web Development? DiveIntoSkills is here to help you with amazing resources that are available for free!"
         />
-
+        <link rel="canonical" href="https://diveintoskills.com/" />
         <meta
           name="keywords"
           content="Dive Into Skills, DiveIntoSkills,Free Courses, Skill, Skills, Web Development, Development, Programming"
