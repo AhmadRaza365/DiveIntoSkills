@@ -1,8 +1,11 @@
 ---
 title: 'Test Post'
 date: 'May 16, 2022'
-excerpt: 'This is a test post.'
+description: 'This is a test post.'
 cover_image: '/images/postImages/testimage.png'
+slug: 'test-post'
+keywords: 'test, post'
+author: 'Test Author'
 type: 'post'
 ---
 ## This is a test post.
