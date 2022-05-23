@@ -6,13 +6,6 @@ import { marked } from "marked";
 import Image from "next/image";
 import Link from "next/link";
 
-import {
-  FaFacebook,
-  FaInstagram,
-  FaTwitter,
-  FaLinkedin,
-  FaGithub,
-} from "react-icons/fa";
 import Head from "next/head";
 
 export default function Posts({
