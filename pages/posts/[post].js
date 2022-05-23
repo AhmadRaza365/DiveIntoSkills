@@ -39,7 +39,10 @@ export default function Posts({
         <meta name="keywords" content={keywords} />
         <meta name="author" content={author} />
         <meta name="robots" content="index, follow" />
-        <meta name="image" content={`https://diveintoskills.com${cover_image}`} />
+        <meta
+          name="image"
+          content={`https://diveintoskills.com${cover_image}`}
+        />
         {/* og Tags */}
         <meta property="og:title" content={title} />
         <meta property="og:site_name" content="Dive Into Skills" />
@@ -66,6 +69,11 @@ export default function Posts({
           name="twitter:image"
           content={`https://diveintoskills.com${cover_image}`}
         />
+                  <script
+            async
+            src="https://platform.twitter.com/widgets.js"
+            charset="utf-8"
+          ></script>
       </Head>
       <article className="mx-2 md:mx-16">
         <h1 className="text-dark-green text-xl md:text-4xl font-bold text-left my-3">
@@ -95,59 +103,16 @@ export default function Posts({
           width={1280}
           height={520}
         />
-        <div dangerouslySetInnerHTML={{ __html: marked(content) }}></div>
+        <div
+          className="mx-2 prose prose-slate md:prose-lg prose-p:w-[90vw] prose-img:rounded-xl prose-img:m-auto"
+          dangerouslySetInnerHTML={{ __html: marked(content) }}
+        ></div>
       </article>
-      <div className="my-10">
-        <h3 className="text-dark-green text-3xl md:text-4xl font-bold text-center ">
-          Sharing is Caring
-        </h3>
-        <ul className="flex justify-center my-3 ">
-          <a
-            href="https://www.facebook.com/AhmadRaza365"
-            target="_blank"
-            rel="noreferrer"
-          >
-            {" "}
-            <FaFacebook className="text-4xl md:text-6xl mx-2 text-dark-green   cursor-pointer   " />{" "}
-          </a>
-          <a
-            href="https://www.instagram.com/ahmadraza_365"
-            target="_blank"
-            rel="noreferrer"
-          >
-            {" "}
-            <FaInstagram className="text-4xl md:text-6xl mx-2 text-dark-green   cursor-pointer   " />{" "}
-          </a>
-          <a
-            href="https://twitter.com/AhmadRaza365"
-            target="_blank"
-            rel="noreferrer"
-          >
-            {" "}
-            <FaTwitter className="text-4xl md:text-6xl mx-2 text-dark-green   cursor-pointer   " />{" "}
-          </a>
-          <a
-            href="https://www.linkedin.com/in/ahmadraza365/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            {" "}
-            <FaLinkedin className="text-4xl md:text-6xl mx-2 text-dark-green   cursor-pointer   " />{" "}
-          </a>
-          <a
-            href="http://github.com/AhmadRaza365"
-            target="_blank"
-            rel="noreferrer"
-          >
-            {" "}
-            <FaGithub className="text-4xl md:text-6xl mx-2 text-dark-green   cursor-pointer   " />
-          </a>
-        </ul>
-      </div>
+      
       <div className="flex justify-center">
         <button className="bg-dark-green m-auto hover:bg-transparent border-2 border-dark-green text-yellow hover:text-dark-green shadow-md rounded-xl px-5 py-2 text-xl my-3">
           <Link href={type === "course" ? "/courses" : "/blogs"}>
-            Find More
+            Get More Related Content 
           </Link>
         </button>
       </div>
