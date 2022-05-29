@@ -21,7 +21,7 @@ export default function Card(props) {
         </Link>
         </h2>
         <p className="text-green text-lg my-2">
-          {props.description}
+          {(props.description).substring(0, 200)}
         </p>
         <div className="text-light-green text-base flex justify-between ">
             <time>{props.date}</time>

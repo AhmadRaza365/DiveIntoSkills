@@ -98,7 +98,7 @@ export default function Posts({
           height={620}
         />
         <div
-          className="mx-2 my-5 prose prose-slate md:prose-lg prose-p:w-[90vw] prose-img:rounded-xl prose-img:m-auto"
+          className="mx-2 my-5 prose prose-slate md:prose-lg max-w-none prose-img:rounded-xl prose-img:m-auto"
           dangerouslySetInnerHTML={{ __html: marked(content) }}
         ></div>
       </article>
