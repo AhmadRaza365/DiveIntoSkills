@@ -146,6 +146,7 @@ export default function Home({ posts }) {
                 image={post.postMeta.cover_image}
                 description={post.postMeta.description}
                 date={post.postMeta.date}
+                category={post.postMeta.category}
               />
             ))}
         </div>
@@ -169,6 +170,7 @@ export default function Home({ posts }) {
                 image={post.postMeta.cover_image}
                 description={post.postMeta.description}
                 date={post.postMeta.date}
+                category={post.postMeta.category}
               />
             ))}
         </div>

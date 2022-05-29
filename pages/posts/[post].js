@@ -7,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import Head from "next/head";
+import Subscribe from "../../components/Subscribe";
 
 export default function Posts({
   frontmatter: {
@@ -62,11 +63,11 @@ export default function Posts({
           name="twitter:image"
           content={`https://diveintoskills.com${cover_image}`}
         />
-                  <script
-            async
-            src="https://platform.twitter.com/widgets.js"
-            charset="utf-8"
-          ></script>
+        <script
+          async
+          src="https://platform.twitter.com/widgets.js"
+          charset="utf-8"
+        ></script>
       </Head>
       <article className="mx-2 md:mx-16">
         <h1 className="text-dark-green text-xl md:text-4xl font-bold text-left my-3">
@@ -74,7 +75,7 @@ export default function Posts({
         </h1>
         <div className="flex items-center justify-between mx-2 md:mx-10">
           <div className="flex items-center gap-2">
-            <div className="w-14 md:w-20">
+            <div className="w-14 md:w-16">
               <Image
                 className="rounded-full object-fill object-center"
                 src="/images/author/ahmadraza365.jpg"
@@ -84,31 +85,32 @@ export default function Posts({
               />
             </div>
             <h3 className="text-dark-green text-lg md:text-2xl font-bold">
-              Ahmad Raza
+              <Link href='https://ahmadraza365.diveintoskills.com/'><a target='_blank'>{author}</a></Link>
             </h3>
           </div>
           <time className="text-lg">{date}</time>
         </div>
         <Image
-          className="rounded-md"
+          className="rounded-md object-cover object-top"
           src={cover_image}
           alt={title}
           width={1280}
-          height={520}
+          height={620}
         />
         <div
-          className="mx-2 prose prose-slate md:prose-lg prose-p:w-[90vw] prose-img:rounded-xl prose-img:m-auto"
+          className="mx-2 my-5 prose prose-slate md:prose-lg prose-p:w-[90vw] prose-img:rounded-xl prose-img:m-auto"
           dangerouslySetInnerHTML={{ __html: marked(content) }}
         ></div>
       </article>
-      
+
       <div className="flex justify-center">
         <button className="bg-dark-green m-auto hover:bg-transparent border-2 border-dark-green text-yellow hover:text-dark-green shadow-md rounded-xl px-5 py-2 text-xl my-3">
           <Link href={type === "course" ? "/courses" : "/blogs"}>
-            Get More Related Content 
+            Get More Related Content
           </Link>
         </button>
       </div>
+      <Subscribe />
     </main>
   );
 }

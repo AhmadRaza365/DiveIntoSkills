@@ -76,6 +76,7 @@ export default function Courses({ posts }) {
                 image={post.postMeta.cover_image}
                 description={post.postMeta.description}
                 date={post.postMeta.date}
+                category={post.postMeta.category}
               />
             ))}
         </div>
